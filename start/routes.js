@@ -25,4 +25,6 @@ Route.group(() => {
   Route.post('users/register','UserController.register')
   //Route Login
   Route.post('login','UserController.login')
+  //Route crated new role
+  Route.post('addrole','UserRoleController.store')
 }).prefix('api');
