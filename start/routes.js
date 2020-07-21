@@ -21,5 +21,8 @@ Route.get('/', () => {
 })
 
 Route.group(() => {
-  Route.post('users/register','UserController.store')
+  //Route register
+  Route.post('users/register','UserController.register')
+  //Route Login
+  Route.post('login','UserController.login')
 }).prefix('api');
