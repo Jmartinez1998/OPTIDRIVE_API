@@ -21,10 +21,15 @@ Route.get('/', () => {
 })
 
 Route.group(() => {
+  //Show all users
+  Route.get('showUs', 'UserController.show')
+  //Delete user
+  Route.delete('users/delete/:id','UserController.destroy')
   //Route register
   Route.post('users/register','UserController.register')
   //Route Login
   Route.post('login','UserController.login')
   //Route crated new role
   Route.post('addrole','UserRoleController.store')
+
 }).prefix('api');

@@ -5,12 +5,30 @@ class UserController {
 
     async login({ request, auth, response }) {
         const data = request.only(User.Datapassw)
-        const token = await auth.withRefreshToken().attempt(data.email, data.password, true);
-        return response.ok({
-            status:200,
-            data:data,
-            token:token
-        })
+        const token = await auth.withRefreshToken().attempt(data.email, data.password, true)
+        try {
+            return response.ok({
+                status:200,
+                data:{ data,token },
+            })
+        }
+        catch(err) {
+            console.error(err)
+        }
+    }
+
+    async show ({ response }) {
+        const users = await User.all()
+        try {
+            response.send({
+                status:200,
+                Message: 'succesfully',
+                data:{ users }
+            })
+        }
+        catch(error) {
+            console.error(error)
+        }
     }
 
     async register ({ request, response, auth }) {
@@ -24,6 +42,24 @@ class UserController {
             data:{ user, token }
         })
     }
+
+    async destroy({ request, response, auth }) {
+        const us = await auth.getUser()
+        if(us.id) {
+            await us.delete()
+            return response.json({
+                status:200,
+                Message: 'User succesfully delete'
+            })
+        }
+        else {
+            return response.json({
+                status:400,
+                Message: 'Error user no found'
+            })
+        }
+    }
+
 }
 
 module.exports = UserController
