@@ -21,6 +21,7 @@ Route.get('/', () => {
 })
 
 Route.group(() => {
+  /** ROUTES BY USERS */
   //Show all users
   Route.get('showUs', 'UserController.show')
   //Delete user
@@ -29,6 +30,10 @@ Route.group(() => {
   Route.post('users/register','UserController.register')
   //Route Login
   Route.post('login','UserController.login')
+
+  /** ROUTES BY ROLES */
+  //Show all roles
+  Route.get('roles','UserToleController.show');
   //Route crated new role
   Route.post('addrole','UserRoleController.store')
 

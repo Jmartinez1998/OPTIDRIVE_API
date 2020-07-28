@@ -37,7 +37,7 @@ class User extends Model {
   }
 
   static get store () {
-    return ['username', 'email', 'password']
+    return ['username','last_name', 'direction', 'tel', 'email', 'password']
   }
 
   static get Datapassw() {
