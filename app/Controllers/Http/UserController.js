@@ -18,6 +18,21 @@ class UserController {
         }
     }
 
+    async logout({request, auth, response}) {
+        const refreshtkn = request.input('refresh_token')
+        const decrypt = Encryption.decrypt(refreshtkn)
+        try{
+            const user = await auth.getUser()
+            await user.tokens().where('token', decrypt).delete()
+        }
+        catch (error) {}
+        return response.ok({
+            success: true,
+            Message: 'Loggout success!',
+            data:{}
+        })
+    }
+
     async show ({ response }) {
         const users = await User.all()
         try {

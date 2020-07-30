@@ -30,10 +30,12 @@ Route.group(() => {
   Route.post('users/register','UserController.register')
   //Route Login
   Route.post('login','UserController.login')
+  //Route logout
+  Route.post('/logout', 'UserController.logout')
 
   /** ROUTES BY ROLES */
   //Show all roles
-  Route.get('roles','UserToleController.show');
+  Route.get('roles','UserToleController.show')
   //Route crated new role
   Route.post('addrole','UserRoleController.store')
 
