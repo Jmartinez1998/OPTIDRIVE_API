@@ -1,5 +1,6 @@
 'use strict'
 const User = use('App/Models/User')
+const Encryption = use('Encryption')
 
 class UserController {
 
@@ -9,7 +10,7 @@ class UserController {
         try {
             return response.ok({
                 status:200,
-                data:{ data,token },
+                data:{ token, data },
             })
         }
         catch(err) {
