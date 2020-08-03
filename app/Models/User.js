@@ -41,7 +41,7 @@ class User extends Model {
   }
 
   static get Datapassw() {
-    return ['email', 'password']
+    return ['email', 'password','role_id']
   }
 
   tokens () {
