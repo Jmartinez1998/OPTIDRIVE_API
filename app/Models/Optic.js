@@ -11,6 +11,10 @@ class Optic extends Model {
     user() {
         return this.belongsTo('App/Models/User', 'manager_id', 'id')
     }
+
+    products() {
+        return this.hasMany('App/Models/Product')
+    }
 }
 
 module.exports = Optic
