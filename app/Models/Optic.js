@@ -4,8 +4,8 @@
 const Model = use('Model')
 
 class Optic extends Model {
-    static get store () {
-        return ['username','last_name', 'direction', 'tel', 'email', 'password']
+    static get data_optic () {
+        return ['manager_id','opti_name','direction', 'city', 'RFC', 'description', 'tel']
         }    
 }
 

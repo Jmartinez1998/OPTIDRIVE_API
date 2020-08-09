@@ -39,4 +39,7 @@ Route.group(() => {
   //Route crated new role
   Route.post('addrole','UserRoleController.store')
 
+  // ROUTE BY OPTICS
+  Route.post('new-optic','OpticController.CreateOptic')
+
 }).prefix('api');
