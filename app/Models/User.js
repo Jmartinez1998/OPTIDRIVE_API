@@ -47,6 +47,15 @@ class User extends Model {
   tokens () {
     return this.hasMany('App/Models/Token')
   }
+
+  role() {
+    return this.belongsTo('App/Models/UserRole', 'role_id')
+  }
+
+  Optic () {
+    return this.hasMany('App/Models/Optic')
+  }
+
 }
 
 module.exports = User

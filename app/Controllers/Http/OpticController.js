@@ -12,6 +12,11 @@ class OpticController {
             data:nw_op
         })
     }
+
+    async show ({ params, response }) {
+        const Optica = await opt.query().where('id', params.id).fetch()
+        return response.ok(Optica)
+        }
 }
 
 module.exports = OpticController

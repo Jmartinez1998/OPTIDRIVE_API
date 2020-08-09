@@ -41,5 +41,6 @@ Route.group(() => {
 
   // ROUTE BY OPTICS
   Route.post('new-optic','OpticController.CreateOptic')
-
+  // Show optic
+  Route.get('viewOptic/:id','OpticController.show')
 }).prefix('api');
