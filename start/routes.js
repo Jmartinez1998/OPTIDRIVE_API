@@ -23,7 +23,7 @@ Route.get('/', () => {
 Route.group(() => {
   /** ROUTES BY USERS */
   //Show all users
-  Route.get('showUs', 'UserController.show')
+  //Route.get('showUs', 'UserController.show')
   //Delete user
   Route.delete('users/delete/:id','UserController.destroy')
   //Route register
@@ -42,7 +42,7 @@ Route.group(() => {
   // ROUTE BY OPTICS
   Route.post('new-optic','OpticController.CreateOptic')
   // Show optic
-  Route.get('viewOptic/:id','OpticController.show')
+  //Route.get('viewOptic/:id','OpticController.show')
 
   // ROUTE BY PRODUCTS
   Route.post('new-product','ProductController.New')
@@ -52,3 +52,11 @@ Route.group(() => {
   Route.get('product/:id','ProductController.show')
 
 }).prefix('api');
+
+// Routes Dashboard
+Route.group(() => {
+  /** ROUTES BY USERS */
+  //Show all users
+  Route.get('showUs', 'UserController.show')
+  Route.get('viewOptic/:id','OpticController.show')
+}).middleware(['auth:jwt', 'cors']).prefix('api')
