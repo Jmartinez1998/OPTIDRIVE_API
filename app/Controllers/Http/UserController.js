@@ -9,9 +9,9 @@ class UserController {
         const token = await auth.withRefreshToken().attempt(data.email, data.password, true)
         const user = await User.query().where('email', data.email).fetch()
         try {
-            return response.ok({ 
-                token,
-                user
+            return response.ok({
+                status:200,
+                data:{ token, user},
             })
         }
         catch(err) {
